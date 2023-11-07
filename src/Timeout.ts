@@ -1,8 +1,8 @@
 export default class Timeout {
     id;
     handler;
-    start: number;
-    timeLeft: number;
+    start
+    timeLeft;
 
     constructor(handler: TimerHandler, time: number) {
         this.id = setTimeout(handler, time);
@@ -23,7 +23,7 @@ export default class Timeout {
 
     continue() {
         this.clear();
-        this.id = setTimeout(() => this.handler, this.timeLeft);
+        this.id = setTimeout(this.handler, this.timeLeft);
         this.start = Date.now();
     }
 }
